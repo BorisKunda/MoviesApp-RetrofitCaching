@@ -198,11 +198,11 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     .addConverterFactory(GsonConverterFactory.create());
 
             Retrofit retrofit = builder.build();
-            Service apiService = retrofit.create(Service.class);
+            Service apiService = retrofit.create(Service.class);/*USED INSTEAD PREVIOUSLY :  Client Client = new Client();
+                                                                                             Service apiService = Client.getClient().create(Service.class);
+                                                                                                                                                            */
 
-            //Client Client = new Client();
-            //Service apiService =
-                    //Client.getClient().create(Service.class);
+
             Call<MoviesResponse> call = apiService.getPopularMovies(BuildConfig.THE_MOVIE_DB_API_TOKEN);
             call.enqueue(new Callback<MoviesResponse>() {
                 @Override
